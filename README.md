@@ -36,16 +36,18 @@ fluxctl install \
 --git-user=${GHUSER} \
 --git-email=${GHUSER}@users.noreply.github.com \
 --git-url=git@github.com:${GHUSER}/flux-get-started \
---git-path=namespaces,workloads \
+--git-path=namespace,workloads \
 --namespace=flux | kubectl apply -f -
 
 # check rollout status
 kubectl -n flux rollout status deployment/flux
 # Giving write access
 fluxctl identity --k8s-fwd-ns flux
-# setup ssh key
-fluxctl identity --k8s-fwd-ns flux
+# add ssh-keys by visiting
+https://github.com/donwany/flux-get-started/settings/keys/new
 # syn repo: manually
+# By default, Flux git pull frequency is set to 5 minutes. 
+# You can tell Flux to sync the changes immediately with:
 fluxctl sync --k8s-fwd-ns flux
 ```
 
