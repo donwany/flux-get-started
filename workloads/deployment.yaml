@@ -12,6 +12,7 @@ metadata:
     # can be <glob, semver and regexp>:
     # https://fluxcd.io/legacy/flux/references/fluxctl/#filter-pattern-types
 spec:
+ replicas: 3
   strategy:
     rollingUpdate:
       maxUnavailable: 0
