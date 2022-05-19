@@ -10,4 +10,4 @@ spec:
       protocol: TCP
   selector:
     app: hello-app-demo
-  type: LoadBalancer
+  type: NodePort
