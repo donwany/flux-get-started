@@ -16,7 +16,7 @@ gh repo create FluxCDExample -d "FLUX CD"  --public
 ### export ENV
 ```shell
 export GITHUB_USER=donwany
-export GITHUB_TOKEN="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"
+export GITHUB_TOKEN="ghp_xyfrZNNPfHnWAv1nqWitDZcsxboAv605lm3x"
 ```
 ### create namespace
 ```shell
