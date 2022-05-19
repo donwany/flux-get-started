@@ -1,0 +1,32 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-app-demo
+  namespace: flux-demo
+  labels:
+    app: hello-app-demo
+  annotations:
+    fluxcd.io/automated: "true"
+    fluxcd.io/tag.hello-app: semver:~1.0.0
+    # can be <glob, semver and regexp>:
+    # https://fluxcd.io/legacy/flux/references/fluxctl/#filter-pattern-types
+spec:
+  strategy:
+    rollingUpdate:
+      maxUnavailable: 0
+    type: RollingUpdate
+  selector:
+    matchLabels:
+      app: hello-app-demo
+  template:
+    metadata:
+      labels:
+        app: hello-app-demo
+    spec:
+      containers:
+        - name: hello-app-demo
+          image: gcr.io/google-samples/hello-app:1.0
+          ports:
+            - name: hello-app-port
+              containerPort: 8080
