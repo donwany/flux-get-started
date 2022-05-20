@@ -12,7 +12,7 @@ metadata:
     # can be <glob, semver and regexp>:
     # https://fluxcd.io/legacy/flux/references/fluxctl/#filter-pattern-types
 spec:
-  replicas: 5
+  replicas: 2
   strategy:
     rollingUpdate:
       maxUnavailable: 0
@@ -27,7 +27,7 @@ spec:
     spec:
       containers:
       - name: hello-app-demo
-        image: gcr.io/google-samples/hello-app:1.0
+        image: gcr.io/google-samples/hello-app:2.0
         ports:
         - name: hello-app-port
           containerPort: 8080
